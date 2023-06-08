@@ -33,7 +33,7 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
 
   pgadmin:
-    image: 'dpage/pgadmin4'
+    image: 'dpage/pgadmin4:latest'
     container_name: 'api-pgadmin'
     tty: true
     environment:
