@@ -4,6 +4,7 @@ import { UserTokensRepository } from '@modules/users/typeorm/repositories/UserTo
 import { UsersRepository } from '@modules/users/typeorm/repositories/UsersRepository';
 import EtherealMail from '@config/mail/EtherealMail';
 import path from 'path';
+import * as process from 'process';
 
 interface IRequest {
   email: string;
@@ -33,7 +34,7 @@ export default class SendForgotPasswordEmailService {
         file: forgotPassTemplate,
         variables: {
           name: user.name,
-          link: `http://localhost:3000/reset_password?token=${token.token}`,
+          link: `${process.env.APP_WEB_URL}/reset_password?token=${token.token}`,
         },
       },
     });
